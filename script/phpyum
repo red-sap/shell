@@ -1,0 +1,50 @@
+# CentOS 7 / RHEL 7
+yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+安装PHP相关组件，下面提供的是一个生产环境中可以使用的标配安装。
+
+$ yum --enablerepo=remi,remi-php70 install
+php \
+php-cgi \
+php-cli \
+php-fpm \
+php-common \
+php-devel \
+php-mysqlnd \
+php-mysql \
+php-sqlite3 \
+php-mbstring \
+php-msgpack \
+php-mcrypt \
+php-bcmath \
+php-gd \
+php-xml \
+php-ldap \
+php-xmlrpc \
+php-opcache \
+php-curl \
+php-json \
+php-odbc \
+php-pdo \
+php-bz2 \
+php-xml \
+php-ftp \
+php-imap \
+php-snmp \
+php-redis \
+php-memcached
+查看PHP版本
+
+$ php -v
+PHP 7.0.9 (cli) (built: Jul 20 2016 18:08:08) ( NTS )
+启动PHP-FPM
+
+$ service php-fpm start
+到这里，PHP7.0就安装完成了。如果需要用到PHP扩展功能，如redis、memcached等，只需要也使用YUM安装即可，如下：
+
+$ yum --enablerepo=remi,remi-php70 install php-redis php-memcached
+如果在REMI或EPEL源中都找不到你需要的扩展模块，那么就需要手动编译安装了，也很简单。
+
+另外查看PHP模块信息使用php -m命令。
+
+$ php -m | grep redis
+redis

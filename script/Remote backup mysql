@@ -1,0 +1,1 @@
+mysqldump -p'ZiHang@123' --all-databases --single-transaction  --master-data=2 --flush-logs >/backup/`date +%F-%H`-mysql-all.sq
